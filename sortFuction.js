@@ -10,16 +10,7 @@ console.log("Sorted: "+reversedArray.sort());
 // Example for numbers
 let numbers = [12,8908097,4544,121,78678,44,9,0,1,-100];
 
-console.log("Wrong Sort: "+ numbers.sort());
-
-let correctSort = numbers.sort((a,b)=>{
-  if(a>b){
-    return 1;
-  }
-  if(a<b){
-    return -1;
-  }
-});
+let correctSort = numbers.sort((a,b)=>a-b);
 
 console.log("Correct Sort: "+ correctSort);
 
