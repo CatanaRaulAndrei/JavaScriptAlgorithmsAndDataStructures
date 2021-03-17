@@ -13,6 +13,34 @@ class BinarySearchTree {
     this.root = null;
   }
 
+
+  // Performs inorder traversal of a tree 
+  inorder(node) {
+    if (node !== null) {
+      this.inorder(node.left);
+      console.log(node.value);
+      this.inorder(node.right);
+    }
+  }
+
+  // Performs preorder traversal of a tree     
+  preorder(node) {
+    if (node !== null) {
+      console.log(node.value);
+      this.preorder(node.left);
+      this.preorder(node.right);
+    }
+  }
+
+  postorder(node) {
+    if (node !== null) {
+      this.postorder(node.left);
+      this.postorder(node.right);
+      console.log(node.value);
+    }
+  }
+
+
   getRootNode() {
     return this.root;
   }
@@ -135,7 +163,6 @@ class BinarySearchTree {
 }
 
 const tree = new BinarySearchTree();
-
 // Add nodes
 
 tree.insert(9);
@@ -145,8 +172,8 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
-tree.remove(20);
 
+// console.log("Before Removing 20 \n",tree.getRootNode());
 /*
       9
      / \
@@ -154,10 +181,20 @@ tree.remove(20);
    / \  / \
    1 6  15 170
 */
+
+// remove a node
+// tree.remove(20);
+/*
+      9
+     / \
+    4   170
+   / \  / 
+   1 6  15 
+*/
+
 // let node = 4;
 // console.log(tree.lookup(node));
-console.log(tree.getRootNode());
-
+// console.log("After removing 20 \n",tree.getRootNode());
 
 /*
 function traverse(node) {
@@ -168,3 +205,12 @@ function traverse(node) {
 }
 */
 // JSON.stringify(traverse(tree.root));
+
+// Traverse the tree
+let root = tree.getRootNode();
+console.log("Inorder Traversal");
+tree.inorder(root);
+console.log("Postorder Traversal");
+tree.postorder(root);
+console.log("Preorder Traversal");
+tree.preorder(root);
